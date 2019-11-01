@@ -1,8 +1,9 @@
-<?php
-require 'inc/head.php';
-    if(isset($_POST['loginname']) AND !empty($_POST['loginname']))
+<?php require 'inc/head.php';
+session_start();
+if(isset($_POST['loginname']) AND !empty($_POST['loginname']))
     {
-        $_SESSION['name'] = $_POST['loginname'];
+        $_SESSION['Username'] = $_POST['loginname'];
+        header('Location:/index.php');
     }
     else{
         echo 'veuillez ecrire votre pseudo';

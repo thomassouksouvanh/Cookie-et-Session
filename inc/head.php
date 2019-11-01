@@ -1,8 +1,4 @@
 <?php
-session_start();
-session_destroy();
-$_SESSION = $_POST['name'];
-setcookie('loginname','thomas', time() + 365*24*3600,null,null,false,true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
