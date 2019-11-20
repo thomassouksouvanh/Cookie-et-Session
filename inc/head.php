@@ -1,10 +1,5 @@
 <?php
 session_start();
-if (empty($_SESSION['username'])){
-    $name = 'Wilder';
-}else{
-    $name = $_SESSION['username'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +40,14 @@ if (empty($_SESSION['username'])){
                     <li><a href="#">Chocolates chips</a></li>
                     <li><a href="#">Nuts</a></li>
                     <li><a href="#">Gluten full</a></li>
-                    <li><a href="logout.php">logout</a></li>
-
+                    <?php if (empty($_SESSION['username'])){
+                    $name = 'wilder';
+                    echo '<li><a href="login.php">Log in</a></li>';
+                    }else{
+                    $name = $_SESSION['username'];
+                    echo'<li><a href="logout.php">Log out</a></li>';
+                    }
+                    ?>
                         <a href="/cart.php" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                             Cart
@@ -57,6 +58,6 @@ if (empty($_SESSION['username'])){
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello <?php echo $name ?> </strong>
+        <strong><H1>Hello <?php echo $name ?></H1></strong>
     </div>
 </header>
